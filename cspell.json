@@ -22,5 +22,17 @@
     ".env.example",
     ".prettierignore"
   ],
-  "words": ["DDOK", "kakao", "xxsm", "xxsmall", "xxxsmall", "xsmall"]
+  "words": [
+    "DDOK",
+    "findid",
+    "findidcomplete",
+    "findpassword",
+    "kakao",
+    "partialize",
+    "signupcomplete",
+    "xsmall",
+    "xxsm",
+    "xxsmall",
+    "xxxsmall"
+  ]
 }

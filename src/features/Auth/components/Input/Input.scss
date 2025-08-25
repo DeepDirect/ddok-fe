@@ -1,0 +1,87 @@
+@use '@/styles/variables' as vars;
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.input-label {
+  font-family: vars.$font-family-primary;
+  font-size: vars.$fs-xxsmall;
+  font-weight: vars.$fw-bold;
+  line-height: vars.$default-line-height;
+  color: vars.$black-1;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  &--error {
+    .input {
+      border-color: vars.$red-1;
+
+      &:focus {
+        border-color: vars.$red-1;
+        box-shadow: 0 0 0 1px vars.$red-1;
+      }
+    }
+  }
+
+  &--password {
+    .input-icon {
+      cursor: pointer;
+    }
+  }
+}
+
+.input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 45px;
+  padding: 0 12px;
+  border: 1px solid vars.$gray-3;
+  border-radius: 10px;
+  font-family: vars.$font-family-primary;
+  font-size: vars.$fs-xsmall;
+  font-weight: vars.$fw-bold;
+  color: vars.$black-1;
+  background-color: vars.$white-3;
+  transition: all 0.2s ease-in-out;
+
+  &::placeholder {
+    font-weight: vars.$fw-medium;
+    color: vars.$gray-2;
+  }
+
+  &:focus {
+    border-color: vars.$blue-1;
+    outline: none;
+    box-shadow: 0 0 0 1px vars.$blue-1;
+  }
+
+  &--error {
+    border-color: vars.$red-1;
+
+    &:focus {
+      border-color: vars.$red-1;
+      box-shadow: 0 0 0 1px vars.$red-1;
+    }
+  }
+}
+
+.input-icon {
+  position: absolute;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: vars.$gray-2;
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+}

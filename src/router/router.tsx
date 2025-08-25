@@ -8,10 +8,12 @@ import PostLayout from '@/layouts/PostLayout/PostLayout';
 import ProfileLayout from '@/layouts/ProfileLayout/ProfileLayout';
 import SearchLayout from '@/layouts/SearchLayout/SearchLayout';
 import TeamLayout from '@/layouts/TeamLayout/TeamLayout';
+import FindIdCompletePage from '@/pages/auth/FindIdCompletePage/FindIdCompletePage';
 import FindIdPage from '@/pages/auth/FindIdPage/FindIdPage';
 import FindPasswordPage from '@/pages/auth/FindPasswordPage/FindPasswordPage';
 import ResetPasswordPage from '@/pages/auth/ResetPasswordPage/ResetPasswordPage';
 import SignInPage from '@/pages/auth/SignInPage/SignInPage';
+import SignUpCompletePage from '@/pages/auth/SignUpCompletePage/SignUpCompletePage';
 import SignUpPage from '@/pages/auth/SignUpPage/SignUpPage';
 import ButtonExamplePage from '@/pages/ButtonExamplePage/ButtonExamplePage';
 import CreateProjectPage from '@/pages/create/CreateProjectPage/CreateProjectPage';
@@ -58,19 +60,27 @@ export const router = createBrowserRouter([
             element: <SignInPage />,
           },
           {
-            path: 'auth/SignUp',
+            path: 'auth/signup',
             element: <SignUpPage />,
           },
           {
-            path: 'auth/FindId',
+            path: 'auth/signupcomplete',
+            element: <SignUpCompletePage />,
+          },
+          {
+            path: 'auth/findid',
             element: <FindIdPage />,
           },
           {
-            path: 'auth/FindPassword',
+            path: 'auth/findidcomplete',
+            element: <FindIdCompletePage />,
+          },
+          {
+            path: 'auth/findpassword',
             element: <FindPasswordPage />,
           },
           {
-            path: 'auth/ResetPassword',
+            path: 'auth/resetpassword',
             element: <ResetPasswordPage />,
           },
         ],

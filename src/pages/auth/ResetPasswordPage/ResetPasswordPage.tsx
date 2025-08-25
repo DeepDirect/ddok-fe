@@ -1,11 +1,146 @@
+import { useEffect, useState } from 'react';
+
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+
+import Button from '@/components/Button/Button';
+import FormField from '@/features/Auth/components/FormField/FormField';
+import PasswordInput from '@/features/Auth/components/Input/PasswordInput';
+import { changePasswordSchema, type ChangePasswordFormValues } from '@/schemas/auth.schema';
+
 import styles from './ResetPasswordPage.module.scss';
 
-const ResetPasswordPage = () => {
+export default function ResetPasswordPage() {
+  const navigate = useNavigate();
+  const [reauthToken, setReauthToken] = useState<string | null>(null);
+
+  // localStorage에서 reauthToken 가져오기
+  useEffect(() => {
+    console.log('ResetPasswordPage 마운트됨');
+
+    // localStorage 전체 내용 확인
+    console.log('localStorage 전체 내용:', { ...localStorage });
+
+    const token = localStorage.getItem('reauthToken');
+    console.log('localStorage에서 가져온 reauthToken:', token ? '***' + token.slice(-4) : 'null');
+
+    if (!token) {
+      console.error('localStorage에 reauthToken이 없습니다!');
+      navigate('/auth/findpassword');
+      return;
+    }
+
+    setReauthToken(token);
+    console.log('reauthToken 상태 설정 완료');
+  }, [navigate]);
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<ChangePasswordFormValues>({
+    resolver: zodResolver(changePasswordSchema),
+    mode: 'onChange',
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const newPassword = watch('newPassword');
+  const passwordCheck = watch('passwordCheck');
+
+  // 폼 제출
+  const onSubmit = async (data: ChangePasswordFormValues) => {
+    console.log('비밀번호 변경 폼 제출');
+
+    if (!reauthToken) {
+      console.error('인증 토큰이 없습니다. 처음부터 다시 시도해주세요.');
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      // 목 데이터로 처리 (실제로는 API 호출)
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
+      console.log('비밀번호 변경 성공 (목 데이터)', {
+        newPassword: data.newPassword,
+        passwordCheck: data.passwordCheck,
+        reauthToken: '***' + reauthToken.slice(-4),
+      });
+
+      // 성공 시 localStorage에서 토큰 제거
+      localStorage.removeItem('reauthToken');
+      console.log('localStorage에서 reauthToken 제거 완료');
+
+      // 로그인 페이지로 이동
+      navigate('/auth/signin');
+    } catch (error) {
+      console.error('비밀번호 재설정에 실패했습니다:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const isButtonDisabled = isSubmitting || !newPassword || !passwordCheck;
+
+  // 토큰이 아직 로드되지 않았으면 로딩 표시
+  if (!reauthToken) {
+    return (
+      <div className={styles.container}>
+        <div>토큰을 확인하는 중...</div>
+        <div style={{ fontSize: '12px', color: '#666', marginTop: '10px' }}>
+          개발자 도구 콘솔을 확인해주세요.
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>ResetPasswordPage</h1>
+    <div className={styles.inner}>
+      <h1 className={styles.title}>새 비밀번호 설정</h1>
+      <p className={styles.text}>새로운 비밀번호를 입력하고 계정을 보호하세요!</p>
+
+      <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+        <FormField
+          label="새 비밀번호"
+          htmlFor="newPassword"
+          required
+          error={errors.newPassword?.message}
+        >
+          <PasswordInput
+            id="newPassword"
+            {...register('newPassword')}
+            placeholder="새 비밀번호를 입력하세요"
+          />
+        </FormField>
+
+        <FormField
+          label="비밀번호 확인"
+          htmlFor="passwordCheck"
+          required
+          error={errors.passwordCheck?.message}
+        >
+          <PasswordInput
+            id="passwordCheck"
+            {...register('passwordCheck')}
+            placeholder="비밀번호를 다시 입력하세요"
+          />
+        </FormField>
+
+        <Button
+          type="submit"
+          className={styles.submitBtn}
+          disabled={isButtonDisabled}
+          variant={!isButtonDisabled ? 'secondary' : 'ghost'}
+          radius="xsm"
+          height="45px"
+        >
+          {isSubmitting ? '비밀번호 변경 중...' : '비밀번호 변경'}
+        </Button>
+      </form>
     </div>
   );
-};
-
-export default ResetPasswordPage;
+}

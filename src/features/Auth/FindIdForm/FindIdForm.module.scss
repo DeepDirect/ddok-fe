@@ -1,0 +1,64 @@
+@use '@/styles/variables.scss' as *;
+
+.form {
+  width: 100%;
+}
+
+.submitBtn {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.fieldWithButton {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+
+  input {
+    flex: 1;
+  }
+
+  button {
+    width: 10.6rem;
+    white-space: nowrap;
+  }
+}
+
+.error {
+  margin-top: 0.2rem;
+  margin-left: 0.5rem;
+  font-size: $fs-xxsmall;
+  font-weight: $fw-bold;
+  text-align: left;
+  color: $red-1;
+}
+
+.errorMessage {
+  margin-bottom: 1rem;
+  padding: 8px;
+  border: 1px solid rgba($red-1, 0.3);
+  border-radius: 4px;
+  font-size: $fs-xxsmall;
+  text-align: center;
+  color: $red-1;
+  background-color: rgba($red-1, 0.1);
+}
+
+.successMessage {
+  margin-bottom: 1rem;
+  padding: 8px;
+  border: 1px solid rgba($blue-1, 0.3);
+  border-radius: 4px;
+  font-size: $fs-xxsmall;
+  text-align: center;
+  color: $blue-1;
+  background-color: rgba($blue-1, 0.1);
+
+  p {
+    margin: 0;
+  }
+
+  strong {
+    font-weight: $fw-bold;
+  }
+}

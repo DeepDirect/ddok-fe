@@ -10,10 +10,15 @@
   margin: auto;
 }
 
+.form {
+  width: 100%;
+}
+
 .title {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
   font-size: $fs-xxlarge;
   font-weight: $fw-bold;
-  text-align: left;
   color: $black-1;
 }
 
@@ -21,15 +26,11 @@
   margin-bottom: 2rem;
   font-size: $fs-xsmall;
   font-weight: $fw-bold;
-  text-align: left;
+  text-align: start;
   color: $gray-1;
 }
 
-.form {
+.Button {
   width: 100%;
-}
-
-.submitBtn {
-  width: 100%;
-  margin-top: 1rem;
+  margin-bottom: 1rem;
 }

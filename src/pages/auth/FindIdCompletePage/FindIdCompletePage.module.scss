@@ -1,5 +1,4 @@
-@use '@/styles/variables' as *;
-@use '@/styles/mixins' as m;
+@use '@/styles/variables.scss' as *;
 
 .inner {
   display: flex;
@@ -11,25 +10,24 @@
 }
 
 .title {
+  margin-bottom: 2.5rem;
   font-size: $fs-xxlarge;
   font-weight: $fw-bold;
   text-align: left;
   color: $black-1;
 }
 
-.text {
-  margin-bottom: 2rem;
+.email {
+  width: 100%;
+  margin-bottom: 3rem;
   font-size: $fs-xsmall;
   font-weight: $fw-bold;
-  text-align: left;
+  text-align: center;
+  text-decoration: underline;
+  word-break: break-all;
   color: $gray-1;
-}
-
-.form {
-  width: 100%;
 }
 
 .submitBtn {
   width: 100%;
-  margin-top: 1rem;
 }
