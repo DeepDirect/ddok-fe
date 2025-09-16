@@ -7,8 +7,8 @@
 지도 기반으로 스터디/프로젝트를 빠르게 찾고 참여하고, 팀 협업(채팅·일정·알림)까지 한 곳에서 처리하는 플랫폼입니다.   
 
 프로젝트 기간: 2025.08 ~ 2025.09 (기획 및 개발)   
-시연영상 [YouTube]()   
-Link:   
+시연영상 [YouTube](https://www.youtube.com/watch?v=lYVMEXc4BAU)   
+Link: [DDOK](http://www.deepdirect.site)
 Code: [FE](https://github.com/DeepDirect/ddok-fe), [BE](https://github.com/DeepDirect/ddok-be)   
 
 ---
@@ -16,7 +16,7 @@ Code: [FE](https://github.com/DeepDirect/ddok-fe), [BE](https://github.com/DeepD
 ## 🫶 팀원
 | 이름      | 역할                 | GitHub 링크                                     |
 |----------|--------------------|------------------------------------------------|
-| 정원용     | 팀장, Full Stack, Infra    | [@projectmiluju](https://github.com/jihun-dev) |
+| 정원용     | 팀장, Full Stack, Infra    | [@projectmiluju](https://github.com/projectmiluju) |
 | 권혜진     | Backend            | [@sunsetkk](https://github.com/sunsetkk)       |
 | 박건      | Frontend            | [@Jammanb0](https://github.com/Jammanb0)       |
 | 박소현     | Frontend           | [@ssoogit](https://github.com/ssoogit)         |
