@@ -11,6 +11,16 @@
 Link:   
 Code: [FE](https://github.com/DeepDirect/ddok-fe), [BE](https://github.com/DeepDirect/ddok-be)   
 
+
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=black)
+![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=FFD62E)
+![Zustand](https://img.shields.io/badge/Zustand-443e38?logo=react&logoColor=white)
+![TanStack Query](https://img.shields.io/badge/TanStack_Query-FF4154?logo=react-query&logoColor=white)
+![SCSS Modules](https://img.shields.io/badge/SCSS-CC6699?logo=sass&logoColor=white)
+![dayjs](https://img.shields.io/badge/day.js-FF5F2E?logo=javascript&logoColor=white)
+![WebSocket](https://img.shields.io/badge/WebSocket-010101?logo=socketdotio&logoColor=white)
+
 ---
 
 ## 🫶 팀원
